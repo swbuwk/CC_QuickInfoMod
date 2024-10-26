@@ -1,4 +1,4 @@
-import { BUFF_NAMES, ICON_SIZE, ICON_URL } from "../constants"
+import { SHORT_BUFF_NAMES, ICON_SIZE, ICON_URL } from "../constants"
 
 const getId = (buff: Game.Buff) => {
   const { type: buffType, arg2 } = buff
@@ -10,7 +10,7 @@ const getId = (buff: Game.Buff) => {
 const getName = (buff: Game.Buff) => {
   let buffId = getId(buff)
   if (buffId.includes("building_buff")) return "BS"
-  return BUFF_NAMES[buffId] || buff?.name
+  return SHORT_BUFF_NAMES[buffId] || buff?.name
 }
 
 const getIcon = (buff: Game.Buff) => {

@@ -1,7 +1,7 @@
 export const ICON_URL = "http://cdn.dashnet.org/cookieclicker/beta/img/icons.png?v=2.052"
-export const ICON_SIZE = 20
+export const ICON_SIZE = 18
 
-export const BUFF_NAMES: Record<string, string> = {
+export const SHORT_BUFF_NAMES: Record<string, string> = {
   "frenzy": "F",
   "click_frenzy": "CF",
   "dragon_harvest": "DH",

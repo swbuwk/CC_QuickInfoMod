@@ -9,3 +9,9 @@ export const globalVars: GlobalVarivales = {
   natGCOnScreen: false,
   GCnoSpawnChance: 1
 } 
+
+export const settings = {
+  uiScale: 1,
+  updateFrequency: 10,
+  shortBuffNames: true
+}
