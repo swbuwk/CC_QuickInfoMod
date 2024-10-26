@@ -26,7 +26,7 @@ export const UpdateBuffsTimer = () => {
     if (!buffEl) return
 
     buffEl.innerHTML = `
-      ${buffIcon}<span>${buffName}: ${buffTime}s</span> <span style="color: ${buffMultColor};">x${parseFloat(buffMult.toFixed(1))}</span>
+      ${buffIcon}<span>${buffName}: ${buffTime}s</span> <span style="color: ${buffMultColor}; display: ${buffMult === 0 ? "none" : "inline"};">x${parseFloat(buffMult.toFixed(1))}</span>
     `
   })
 

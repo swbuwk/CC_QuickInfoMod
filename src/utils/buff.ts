@@ -28,7 +28,7 @@ const getName = (buff: Game.Buff) => {
     buffName = SHORT_BUFF_NAMES[buffId] || buff?.name
   }
 
-  if (settings.showBuildingName) buffName += ` (${getBuildingName(buff)})`
+  if (settings.showBuildingName && buffId.includes("building")) buffName += ` (${getBuildingName(buff)})`
 
   return buffName
 }
