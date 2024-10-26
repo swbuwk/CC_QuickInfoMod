@@ -12,6 +12,7 @@ export const settings: Settings = {
   updateFrequency: 10,
   shortBuffNames: true,
   showBuildingName: false,
+  hideOldBuffTImers: false,
 }
 
 export const settingsOptions: SettingsOption[] = [
@@ -51,8 +52,19 @@ export const settingsOptions: SettingsOption[] = [
   },
   { 
     id: "showBuildingName", 
-    name: "Show building special names", 
+    name: "Show building names", 
     type: "boolean", 
     default: false,
+  },
+  { 
+    id: "hideOldBuffTImers", 
+    name: "Hide old buff timers", 
+    type: "boolean", 
+    default: false,
+    onChange: (val: boolean) => {
+      const buffsEl = l("buffs")
+      if (!buffsEl) return
+      buffsEl.style.display = val ? "none" : "block"
+    }
   } 
 ]

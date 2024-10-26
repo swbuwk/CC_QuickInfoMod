@@ -7,6 +7,7 @@ import { UpdateGCTimer } from "./hooks/UpdateGCTimerHook";
 import { createInfoBlock } from "./handlers/info/createInfoBlock";
 import { initInfoContainer } from "./handlers/info/initInfoContainer";
 import { Settings } from "./types";
+import { applySettings } from "./handlers/settings/applySettings";
  
 const QIDrawHook = () => {
   if (Game.drawT % Math.ceil(settings.updateFrequency / 2) !== 0) return
@@ -35,6 +36,8 @@ const load = (dataStr: string) => {
   (Object.keys(data) as (keyof Settings)[]).forEach(<K extends keyof Settings>(key: K) => {
     settings[key] = data[key]
   })
+
+  applySettings()
 }
 
 const QIMod = {

@@ -21,9 +21,6 @@ export const UpdateGCTimer = () => {
   const GCTimer = l("QI_GCTimer")
   if (!GCTimer) return
 
-  GCTimer.style.height = `${settings.guiScale * INFO_BLOCK_SIZE}px`
-  GCTimer.style.fontSize = `${settings.guiScale * INFO_BLOCK_FONT_SIZE}px`
-
   if (globalVars.natGCOnScreen) {
     GCTimer.innerHTML = `<span style="color: rgb(255, 255, 255);">GC: On screen</span>`
     return

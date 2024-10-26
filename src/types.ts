@@ -31,4 +31,5 @@ export type Settings = {
   updateFrequency: number
   shortBuffNames: boolean
   showBuildingName: boolean
+  hideOldBuffTImers: boolean
 }
