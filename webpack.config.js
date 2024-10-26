@@ -28,7 +28,7 @@ module.exports = function (env) {
     plugins: [
       new webpack.SourceMapDevToolPlugin({
         filename: 'QuickInfo.js.map',
-        publicPath: "",
+        publicPath: "https://swbuwk.github.io/CC_QuickInfoMod/dist/",
         fileContext: 'public',
       }),
     ],
