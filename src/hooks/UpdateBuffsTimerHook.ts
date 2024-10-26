@@ -1,14 +1,14 @@
 import { MULT_CLICK_IDS } from "../constants";
 import { globalVars } from "../globalVariables";
 import { BuffUtils } from "../utils/buff";
-import { createInfoBlock } from "../utils/createInfoBlock";
+import { createInfoBlock } from "../handlers/info/createInfoBlock";
 
 export const UpdateBuffsTimer = () => {
   Object.keys(Game.buffs).forEach((key: string) => {
     const buff = (Game.buffs as unknown as Record<string, Game.Buff>)[key] 
     if (!buff) return
 
-    const { name, time, multCpS, multClick } = buff
+    const { time, multCpS, multClick } = buff
 
     const buffId = BuffUtils.getId(buff)
     const buffTime = Math.ceil(time / Game.fps)

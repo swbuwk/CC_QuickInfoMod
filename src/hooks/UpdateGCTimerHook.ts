@@ -13,9 +13,9 @@ export const UpdateGCTimer = () => {
 
   const chanceToSpawnTick = Math.max(0, (t - minT) / (maxT - minT)) ** 5;
   globalVars.GCnoSpawnChance *= 1 - chanceToSpawnTick
-  const GCChance = parseFloat(((1 - globalVars.GCnoSpawnChance)*100).toFixed(1))
+  const GCChance = ((1 - globalVars.GCnoSpawnChance)*100).toFixed(1)
 
-  const GCChanceColor = colorInterpolate([255, 42, 75], [2, 253, 2], Math.min(1, GCChance / 50))
+  const GCChanceColor = colorInterpolate([255, 42, 75], [2, 253, 2], Math.min(1, parseFloat(GCChance) / 50))
 
   const GCTimer = l("QI_GCTimer")
   if (!GCTimer) return
