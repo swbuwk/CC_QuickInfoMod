@@ -15,7 +15,7 @@
 
 const readyCheck = setInterval(() => {
   if (typeof Game !== 'undefined' && typeof Game.ready !== 'undefined' && Game.ready) {
-    Game.loadMod("https://swbuwk.github.io/CC_QuickInfoMod/dist/QuickInfo.js");
+    Game.LoadMod("https://swbuwk.github.io/CC_QuickInfoMod/dist/QuickInfo.js");
     clearInterval(readyCheck);
   }
 }, 1000);
