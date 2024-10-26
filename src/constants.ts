@@ -3,6 +3,11 @@ export const ICON_SIZE = 18
 export const INFO_BLOCK_SIZE = 16
 export const INFO_BLOCK_FONT_SIZE = 12
 
+export const COLORS = {
+  red: "rgb(255, 42, 75)",
+  green: "rgb(2, 253, 2)"
+}
+
 export const SHORT_BUFF_NAMES: Record<string, string> = {
   "frenzy": "F",
   "click_frenzy": "CF",

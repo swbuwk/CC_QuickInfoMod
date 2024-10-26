@@ -22,9 +22,9 @@ export const UpdateGCTimer = () => {
   if (!GCTimer) return
 
   if (globalVars.natGCOnScreen) {
-    GCTimer.innerHTML = `<span style="color: rgb(255, 255, 255);">GC: On screen</span>`
+    GCTimer.innerHTML = `<span style="color: white;">GC: On screen</span>`
     return
   }
 
-  GCTimer.innerHTML = `<span style="color: rgb(255, 255, 255);">GC: ${timerString}</span> <span style="color: rgb(${GCChanceColor.toString()});">${GCChance}%</span>`
+  GCTimer.innerHTML = `<span style="color: white;">GC: ${timerString}</span> <span style="color: rgb(${GCChanceColor.toString()});">${GCChance}%</span>`
 }

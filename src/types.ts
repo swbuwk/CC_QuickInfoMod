@@ -1,5 +1,11 @@
-export type GlobalVarivales = {
-  buffTimers: { id: string, key: string }[]
+export type BuffTimer = {
+  id: string
+  key: string
+  time: number
+}
+
+export type GlobalVariables = {
+  buffTimers: BuffTimer[]
   natGCOnScreen: boolean
   GCnoSpawnChance: number
 }
@@ -32,4 +38,5 @@ export type Settings = {
   shortBuffNames: boolean
   showBuildingName: boolean
   hideOldBuffTImers: boolean
+  highlightExistingBuffs: boolean
 }

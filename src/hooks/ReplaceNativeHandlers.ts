@@ -1,5 +1,8 @@
-import { settingsOptions } from "../globalVariables"
+import { globalVars, settings, settingsOptions } from "../globalVariables"
 import { createSettingsOption } from "../handlers/settings"
+import { BuffTimer } from "../types"
+import { BuffUtils } from "../utils/buff"
+import { highlightInfoBlock } from "../utils/highlightInfoBlock"
 
 const addCustomSettings = () => {
   if (!l("menu")?.childNodes?.length) return
@@ -25,10 +28,31 @@ const addCustomSettings = () => {
   l('menu')?.insertBefore(settingsEl, l('menu')?.childNodes[3] || null)
 }
 
+const detectExistingBuff = (oldBuffTimers: BuffTimer[], newBuff: Game.Buff) => {
+  const newBuffId = BuffUtils.getId(newBuff)
+  const oldBuffCandidate = oldBuffTimers.find(buff => buff.id === newBuffId)
+
+  if (oldBuffCandidate) {
+    oldBuffCandidate.time = newBuff.time
+    const buffEl = l("QI_" + oldBuffCandidate.id)
+    highlightInfoBlock(buffEl)
+  }
+}
+
 export const replaceNativeHandlers = () => {
   const InitUpdateMenu = Game.UpdateMenu
   Game.UpdateMenu = () => {
     InitUpdateMenu()
     addCustomSettings()
+  }
+
+  const gainBuff = Game.gainBuff
+  Game.gainBuff = (...args: Parameters<typeof gainBuff>) => {
+    const oldBuffTimers = globalVars.buffTimers
+    const buff = gainBuff(...args)
+    if (settings.highlightExistingBuffs) {
+      detectExistingBuff(oldBuffTimers, buff)
+    }
+    return buff
   }
 }

@@ -1,4 +1,4 @@
-import { MULT_CLICK_IDS } from "../constants";
+import { COLORS, MULT_CLICK_IDS } from "../constants";
 import { globalVars } from "../globalVariables";
 import { BuffUtils } from "../utils/buff";
 import { createInfoBlock } from "../handlers/info/createInfoBlock";
@@ -15,11 +15,11 @@ export const UpdateBuffsTimer = () => {
     const buffName = BuffUtils.getName(buff)
     const buffIcon = BuffUtils.getIcon(buff)
     const buffMult = (MULT_CLICK_IDS.includes(buffId) ? multClick : multCpS) || 0
-    const buffMultColor = buffMult > 1 ? "rgb(2, 253, 2)" : "rgb(255, 42, 75)"
+    const buffMultColor = buffMult > 1 ? COLORS.green : COLORS.red
 
     if (!globalVars.buffTimers.find(b => b.id === buffId)) {
       createInfoBlock(buffId)
-      globalVars.buffTimers.push({ id: buffId, key })
+      globalVars.buffTimers.push({ id: buffId, key, time: buffTime })
     }
 
     const buffEl = l("QI_" + buffId)

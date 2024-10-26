@@ -1,7 +1,7 @@
 import { INFO_BLOCK_FONT_SIZE, INFO_BLOCK_SIZE } from "./constants"
-import { GlobalVarivales, Settings, SettingsOption } from "./types"
+import { GlobalVariables, Settings, SettingsOption } from "./types"
 
-export const globalVars: GlobalVarivales = {
+export const globalVars: GlobalVariables = {
   buffTimers: [],
   natGCOnScreen: false,
   GCnoSpawnChance: 1
@@ -13,6 +13,7 @@ export const settings: Settings = {
   shortBuffNames: true,
   showBuildingName: false,
   hideOldBuffTImers: false,
+  highlightExistingBuffs: true
 }
 
 export const settingsOptions: SettingsOption[] = [
@@ -66,5 +67,11 @@ export const settingsOptions: SettingsOption[] = [
       if (!buffsEl) return
       buffsEl.style.display = val ? "none" : "block"
     }
-  } 
+  },
+  { 
+    id: "highlightExistingBuffs", 
+    name: "Highlight existing buffs",
+    type: "boolean", 
+    default: false,
+  },
 ]
