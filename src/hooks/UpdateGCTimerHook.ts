@@ -1,4 +1,5 @@
 import { globalVars } from "../globalVariables";
+import { colorInterpolate } from "../utils/colorInterpolate";
 
 export const UpdateGCTimer = () => {
   const minT = Game.shimmerTypes.golden.minTime
@@ -14,6 +15,8 @@ export const UpdateGCTimer = () => {
   globalVars.GCnoSpawnChance *= 1 - chanceToSpawnTick
   const GCChance = parseFloat(((1 - globalVars.GCnoSpawnChance)*100).toFixed(1))
 
+  const GCChanceColor = colorInterpolate([255, 42, 75], [2, 253, 2], Math.min(1, GCChance / 50))
+
   const GCTimer = l("QI_GCTimer")
   if (!GCTimer) return
 
@@ -22,5 +25,5 @@ export const UpdateGCTimer = () => {
     return
   }
 
-  GCTimer.innerHTML = `<span style="color: rgb(255, 255, 255);">GC: ${timerString}</span> <span style="color: rgb(255, 255, 255);">${GCChance}%</span>`
+  GCTimer.innerHTML = `<span style="color: rgb(255, 255, 255);">GC: ${timerString}</span> <span style="color: rgb(${GCChanceColor.toString()});">${GCChance}%</span>`
 }
