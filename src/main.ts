@@ -46,4 +46,10 @@ const QIMod = {
   load
 }
 
-Game.registerMod('QuickInfo', QIMod);
+if (typeof Steam !== 'undefined') {
+  setTimeout(function () {
+    Game.registerMod('QuickInfo', QIMod);
+  }, 2000);
+} else {
+  Game.registerMod('QuickInfo', QIMod);
+}
