@@ -6,6 +6,7 @@ import { highlightInfoBlock } from "../utils/highlightInfoBlock"
 
 const addCustomSettings = () => {
   if (!l("menu")?.childNodes?.length) return
+  if (Game.onMenu !== 'prefs') return
 
   const settingsEl = document.createElement("div")
   settingsEl.id = "QISettings"
