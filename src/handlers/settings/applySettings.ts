@@ -10,9 +10,19 @@ export const applySettings = () => {
     }
   }
 
-  if (settings.hideOldBuffTImers) {
+  if (!settings.showOldBuffTImers) {
     const buffsEl = l("buffs")
     if (!buffsEl) return
     buffsEl.style.display = "none"
+  }
+
+  if (settings.alternativeBuffStacking) {
+    const QIContainer = l("QIContainer")
+    if (!QIContainer) return
+
+    QIContainer.style.flexDirection = "row"
+    QIContainer.style.flexWrap = "wrap"
+    QIContainer.style.width = `calc(100% - ${20 + (settings?.showOldBuffTImers ? 50 : 0)}px)`
+    QIContainer.style.justifyContent = "flex-start"
   }
 }

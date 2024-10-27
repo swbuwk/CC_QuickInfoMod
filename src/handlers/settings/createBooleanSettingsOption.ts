@@ -25,5 +25,12 @@ export const createBooleanSettingsOption = (parent: HTMLElement, setting: Settin
   }
 
   parent.appendChild(settingEl)
+  
+  if (setting.description) {
+    const descriptionEl = document.createElement("label")
+    descriptionEl.innerHTML = setting.description
+    parent.appendChild(descriptionEl)
+  }
+  
   parent.appendChild(document.createElement("br"))
 }

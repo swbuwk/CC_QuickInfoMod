@@ -12,6 +12,7 @@ export type GlobalVariables = {
 type SettingsOptionBase<T> = {
   id: keyof Settings
   name: string
+  description?: string
   type: "slider" | "boolean"
   default: T
   onChange?: (val: T) => void
@@ -36,6 +37,8 @@ export type Settings = {
   updateFrequency: number
   shortBuffNames: boolean
   showBuildingName: boolean
-  hideOldBuffTImers: boolean
+  showOldBuffTImers: boolean
   highlightExistingBuffs: boolean
+  showMultipliers: boolean
+  alternativeBuffStacking: boolean
 }

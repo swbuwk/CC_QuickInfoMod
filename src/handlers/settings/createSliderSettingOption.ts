@@ -44,5 +44,15 @@ export const createSliderSettingOption = (parent: HTMLElement, setting: Settings
   }
 
   parent.appendChild(settingEl)
+
+  if (setting.description) {
+    const descriptionEl = document.createElement("label")
+    descriptionEl.style.position = "relative"
+    descriptionEl.style.display = "inline-block"
+    descriptionEl.style.top = "-9px"
+    descriptionEl.innerHTML = setting.description
+    parent.appendChild(descriptionEl)
+  }
+
   parent.appendChild(document.createElement("br"))
 }
