@@ -22,7 +22,7 @@ export type SettingsOptionSlider = SettingsOptionBase<number> & {
   min: number
   max: number
   step: number
-  valueFormat: string
+  valueFormat: (val: number) => string
 }
 
 export type SettingsOptionBoolean = SettingsOptionBase<boolean> & { 

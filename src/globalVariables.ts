@@ -24,7 +24,7 @@ export const settingsOptions: SettingsOption[] = [
     max: 2, 
     step: 0.1, 
     default: 1, 
-    valueFormat: `x{val}`,
+    valueFormat: (val) => `x${val}`,
     onChange: (val: number) => {
       const QIContainer = l("QIContainer")
       if (!QIContainer) return
@@ -38,11 +38,11 @@ export const settingsOptions: SettingsOption[] = [
     id: "updateFrequency", 
     name: "Update Frequency", 
     type: "slider", 
-    min: 1, 
-    max: 100, 
-    step: 1, 
+    min: 0, 
+    max: 100.1, 
+    step: 2, 
     default: 10,
-    valueFormat: `every {val} ticks`
+    valueFormat: (val: number) => val === 0 ? "every tick" : `every ${val} ticks`
   },
   { 
     id: "shortBuffNames", 

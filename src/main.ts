@@ -10,10 +10,12 @@ import { Settings } from "./types";
 import { applySettings } from "./handlers/settings/applySettings";
  
 const QIDrawHook = () => {
-  if (Game.drawT % Math.ceil(settings.updateFrequency / 2) !== 0) return
+  const updateFrequency = Math.max(1, settings.updateFrequency)
+
+  if (Game.drawT % Math.ceil(updateFrequency / 2) !== 0) return
   UpdateGCTimer() 
 
-  if (Game.drawT % settings.updateFrequency !== 0) return
+  if (Game.drawT % updateFrequency !== 0) return
   CheckGCSpawn()
   UpdateBuffsTimer()
 }
@@ -47,9 +49,10 @@ const QIMod = {
 }
 
 if (typeof Steam !== 'undefined') {
+  // Wait for Steam to load
   setTimeout(function () {
     Game.registerMod('QuickInfo', QIMod);
-  }, 2000);
+  }, 2500);
 } else {
   Game.registerMod('QuickInfo', QIMod);
 }

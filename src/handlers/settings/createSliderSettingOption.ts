@@ -15,7 +15,7 @@ export const createSliderSettingOption = (parent: HTMLElement, setting: Settings
   const settingValue = document.createElement("div")
   settingValue.style.float = "right"
   settingValue.className = "smallFancyButton"
-  settingValue.innerHTML = setting.valueFormat?.replaceAll("{val}", String(currentSettingValue))
+  settingValue.innerHTML = setting.valueFormat(currentSettingValue as number)
 
   const settingInput = document.createElement("input")
   settingInput.className = "slider"
@@ -31,7 +31,7 @@ export const createSliderSettingOption = (parent: HTMLElement, setting: Settings
 
   const setSetting = (val: string) => {
     (settings[setting.id] as number) = +val
-    settingValue.innerHTML = setting.valueFormat?.replaceAll("{val}", val)
+    settingValue.innerHTML = setting.valueFormat(+val)
     if (setting.onChange) setting.onChange(+val)
   }
 
