@@ -42,4 +42,6 @@ export type Settings = {
   showMultipliers: boolean
   alternativeBuffStacking: boolean
   showBuffTimers: boolean
+  showBuffToggler: boolean
+  showGCTimer: boolean
 }

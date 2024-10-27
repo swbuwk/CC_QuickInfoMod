@@ -15,10 +15,36 @@ export const settings: Settings = {
   highlightExistingBuffs: true,
   showMultipliers: true,
   alternativeBuffStacking: false,
-  showBuffTimers: true
+  showBuffTimers: true,
+  showBuffToggler: true,
+  showGCTimer: true
 }
 
 export const settingsOptions: SettingsOption[] = [
+  {
+    id: "showGCTimer", 
+    name: "Show Golden Cookie timer",
+    description: `(toggles Golden Cookie timer visibility)`,
+    type: "boolean", 
+    default: true,
+    onChange: (val: boolean) => {
+      const GCTimer = l("QI_GCTimer")
+      if (!GCTimer) return
+      GCTimer.style.display = val ? "block" : "none"
+    }
+  },
+  {
+    id: "showBuffToggler", 
+    name: "Show buff toggler",
+    description: `(toggles toggler visibility a.k.a "Hide buffs" button (meta toggler time))`,
+    type: "boolean", 
+    default: true,
+    onChange: (val: boolean) => {
+      const buffToggler = l("QI_buffToggler")
+      if (!buffToggler) return
+      buffToggler.style.display = val ? "block" : "none"
+    }
+  },
   { 
     id: "guiScale", 
     name: "GUI Scale", 

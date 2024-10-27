@@ -14,6 +14,18 @@ export const applySettings = () => {
     })
   }
 
+  if (!settings.showGCTimer) {
+    const GCTimer = l("QI_GCTimer")
+    if (!GCTimer) return
+    GCTimer.style.display = "none"
+  }
+
+  if (!settings.showBuffToggler) {
+    const buffToggler = l("QI_buffToggler")
+    if (!buffToggler) return
+    buffToggler.style.display = "none"
+  }
+
   if (!settings.showOldBuffTImers) {
     const buffsEl = l("buffs")
     if (buffsEl) {
@@ -30,8 +42,6 @@ export const applySettings = () => {
       QIContainer.style.justifyContent = "flex-start"
     }
   }
-
-  console.log(settings.showBuffTimers)
 
   if (!settings.showBuffTimers) {
     const buffToggler = l("QI_buffToggler")

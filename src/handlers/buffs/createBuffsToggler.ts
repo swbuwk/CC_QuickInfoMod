@@ -6,13 +6,12 @@ export const createBuffsToggler = () => {
   if (!buffToggler) return
 
   buffToggler.style.cursor = "pointer"
-  buffToggler.style.transition = "0.2s"
+  buffToggler.style.transition = "background-color 0.5s"
   buffToggler.onmouseenter = () => { buffToggler.style.backgroundColor = "rgba(90, 90, 90, 0.5)" }
   buffToggler.onmouseleave = () => { buffToggler.style.backgroundColor = "rgba(0, 0, 0, 0.5)" } 
   buffToggler.innerHTML = `${settings.showBuffTimers ? "Hide buffs" : "Show buffs"}`
   
   const toggleBuffTimersVisibility = () => {
-    console.log(settings.showBuffTimers)
     settings.showBuffTimers = !settings.showBuffTimers
     buffToggler.innerHTML = `${settings.showBuffTimers ? "Hide buffs" : "Show buffs"}`
 
