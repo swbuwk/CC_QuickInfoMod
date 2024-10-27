@@ -1,13 +1,14 @@
 
 import { settings } from "./globalVariables";
 import { CheckGCSpawn } from "./hooks/CheckGCSpawn";
-import { replaceNativeHandlers } from "./hooks/ReplaceNativeHandlers";
 import { UpdateBuffsTimer } from "./hooks/UpdateBuffsTimerHook";
 import { UpdateGCTimer } from "./hooks/UpdateGCTimerHook";
 import { createInfoBlock } from "./handlers/info/createInfoBlock";
 import { initInfoContainer } from "./handlers/info/initInfoContainer";
 import { Settings } from "./types";
 import { applySettings } from "./handlers/settings/applySettings";
+import { createBuffsToggler } from "./handlers/buffs/createBuffsToggler";
+import { replaceNativeHandlers } from "./handlers/replaceNativeHandlers";
  
 const QIDrawHook = () => {
   const updateFrequency = Math.max(1, settings.updateFrequency)
@@ -23,6 +24,7 @@ const QIDrawHook = () => {
 const init = () => {
   initInfoContainer()
   replaceNativeHandlers()
+  createBuffsToggler()
   createInfoBlock("GCTimer")
 
   Game.registerHook("draw", QIDrawHook)

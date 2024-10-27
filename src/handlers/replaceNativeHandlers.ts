@@ -1,5 +1,5 @@
 import { globalVars, settings, settingsOptions } from "../globalVariables"
-import { createSettingsOption } from "../handlers/settings"
+import { createSettingsOption } from "./settings"
 import { BuffTimer } from "../types"
 import { BuffUtils } from "../utils/buff"
 import { highlightInfoBlock } from "../utils/highlightInfoBlock"

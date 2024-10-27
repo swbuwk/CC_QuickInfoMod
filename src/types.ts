@@ -41,4 +41,5 @@ export type Settings = {
   highlightExistingBuffs: boolean
   showMultipliers: boolean
   alternativeBuffStacking: boolean
+  showBuffTimers: boolean
 }

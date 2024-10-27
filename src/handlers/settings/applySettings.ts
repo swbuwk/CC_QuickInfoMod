@@ -1,28 +1,41 @@
 import { INFO_BLOCK_FONT_SIZE, INFO_BLOCK_SIZE } from "../../constants"
 import { settings } from "../../globalVariables"
 
+const notScaledElements = ["QI_buffToggler", "QI_GCTimer"] 
+
 export const applySettings = () => {
   if (settings.guiScale !== 1) {
-    const GCTimer = l("QI_GCTimer")
-    if (GCTimer) {
-      GCTimer.style.height = `${settings.guiScale * INFO_BLOCK_SIZE}px`
-      GCTimer.style.fontSize = `${settings.guiScale * INFO_BLOCK_FONT_SIZE}px`
-    }
+    notScaledElements.forEach(id => {
+      const element = l(id)
+      if (element) {
+        element.style.height = `${settings.guiScale * INFO_BLOCK_SIZE}px`
+        element.style.fontSize = `${settings.guiScale * INFO_BLOCK_FONT_SIZE}px`
+      }
+    })
   }
 
   if (!settings.showOldBuffTImers) {
     const buffsEl = l("buffs")
-    if (!buffsEl) return
-    buffsEl.style.display = "none"
+    if (buffsEl) {
+      buffsEl.style.display = "none"
+    }
   }
 
   if (settings.alternativeBuffStacking) {
     const QIContainer = l("QIContainer")
-    if (!QIContainer) return
+    if (QIContainer) {
+      QIContainer.style.flexDirection = "row"
+      QIContainer.style.flexWrap = "wrap"
+      QIContainer.style.width = `calc(100% - ${20 + (settings?.showOldBuffTImers ? 50 : 0)}px)`
+      QIContainer.style.justifyContent = "flex-start"
+    }
+  }
 
-    QIContainer.style.flexDirection = "row"
-    QIContainer.style.flexWrap = "wrap"
-    QIContainer.style.width = `calc(100% - ${20 + (settings?.showOldBuffTImers ? 50 : 0)}px)`
-    QIContainer.style.justifyContent = "flex-start"
+  console.log(settings.showBuffTimers)
+
+  if (!settings.showBuffTimers) {
+    const buffToggler = l("QI_buffToggler")
+    if (!buffToggler) return
+    buffToggler.innerHTML = "Show buffs"
   }
 }

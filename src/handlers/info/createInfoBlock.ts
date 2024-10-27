@@ -18,4 +18,6 @@ export const createInfoBlock = (id: string) => {
   infoBlock.style.transition = "box-shadow 0.5s"
 
   l("QIContainer")?.appendChild(infoBlock)
+
+  return infoBlock
 }

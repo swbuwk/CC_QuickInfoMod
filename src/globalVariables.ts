@@ -14,7 +14,8 @@ export const settings: Settings = {
   showOldBuffTImers: true,
   highlightExistingBuffs: true,
   showMultipliers: true,
-  alternativeBuffStacking: false
+  alternativeBuffStacking: false,
+  showBuffTimers: true
 }
 
 export const settingsOptions: SettingsOption[] = [

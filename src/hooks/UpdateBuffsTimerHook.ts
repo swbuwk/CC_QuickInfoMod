@@ -7,6 +7,7 @@ export const UpdateBuffsTimer = () => {
   Object.keys(Game.buffs).forEach((key: string) => {
     const buff = (Game.buffs as unknown as Record<string, Game.Buff>)[key] 
     if (!buff) return
+    if (!settings.showBuffTimers) return
 
     const { time, multCpS, multClick } = buff
 

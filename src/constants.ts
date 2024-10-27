@@ -24,6 +24,12 @@ export const SHORT_BUFF_NAMES: Record<string, string> = {
   "loan_1_interest": "L1 (I)",
   "loan_2_interest": "L2 (I)",
   "loan_3_interest": "L3 (I)",
+  "haggler_luck": "Hagglers (+)",
+  "pixie_luck": "Pixies (+)",
+  "magic_adept": "DI (+)",
+  "haggler_misery": "Hagglers (-)",
+  "pixie_misery": "Pixies (-)",
+  "magic_inept": "DI (-)",
 }
 
 export const MULT_CLICK_IDS = [

@@ -1,5 +1,4 @@
-import { INFO_BLOCK_FONT_SIZE, INFO_BLOCK_SIZE } from "../constants";
-import { globalVars, settings } from "../globalVariables";
+import { globalVars } from "../globalVariables";
 import { colorInterpolate } from "../utils/colorInterpolate";
 
 export const UpdateGCTimer = () => {
