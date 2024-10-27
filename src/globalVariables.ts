@@ -30,7 +30,7 @@ export const settingsOptions: SettingsOption[] = [
     onChange: (val: boolean) => {
       const GCTimer = l("QI_GCTimer")
       if (!GCTimer) return
-      GCTimer.style.display = val ? "block" : "none"
+      GCTimer.style.display = val ? "flex" : "none"
     }
   },
   {
@@ -42,7 +42,7 @@ export const settingsOptions: SettingsOption[] = [
     onChange: (val: boolean) => {
       const buffToggler = l("QI_buffToggler")
       if (!buffToggler) return
-      buffToggler.style.display = val ? "block" : "none"
+      buffToggler.style.display = val ? "flex" : "none"
     }
   },
   { 
@@ -125,7 +125,7 @@ export const settingsOptions: SettingsOption[] = [
   { 
     id: "alternativeBuffStacking", 
     name: "Alt. buffs stacking",
-    description: "(toggles the buff stacking from horizontal to vertical)",
+    description: "(toggles the buff stacking from vertical to horizontal)",
     type: "boolean", 
     default: false,
     onChange: (val: boolean) => {

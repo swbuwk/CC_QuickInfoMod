@@ -1,5 +1,6 @@
 import { INFO_BLOCK_FONT_SIZE, INFO_BLOCK_SIZE } from "../../constants"
 import { settings } from "../../globalVariables"
+import { buffsHiddenHTML } from "../buffs/createBuffsToggler"
 
 const notScaledElements = ["QI_buffToggler", "QI_GCTimer"] 
 
@@ -46,6 +47,6 @@ export const applySettings = () => {
   if (!settings.showBuffTimers) {
     const buffToggler = l("QI_buffToggler")
     if (!buffToggler) return
-    buffToggler.innerHTML = "Show buffs"
+    buffToggler.innerHTML = buffsHiddenHTML
   }
 }
