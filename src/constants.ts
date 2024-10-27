@@ -15,7 +15,15 @@ export const SHORT_BUFF_NAMES: Record<string, string> = {
   "dragonflight": "DF",
   "cursed_finger": "CuF",
   "cookie_storm": "CS",
-  "blood_frenzy": "EF"
+  "blood_frenzy": "EF",
+  "sugar_frenzy": "SF",
+  "sugar_blessing": "SB",
+  "loan_1": "L1",
+  "loan_2": "L2",
+  "loan_3": "L3",
+  "loan_1_interest": "L1 (I)",
+  "loan_2_interest": "L2 (I)",
+  "loan_3_interest": "L3 (I)",
 }
 
 export const MULT_CLICK_IDS = [
