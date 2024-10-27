@@ -7,7 +7,6 @@ export const CheckGCSpawn = () => {
   Game.shimmers.forEach((shimmer: Game.shimmer) => {
     if (shimmer.type === "golden" && shimmer.spawnLead) {
       hasNatGC = true
-      globalVars.GCnoSpawnChance = 1
     }
   })
   globalVars.natGCOnScreen = hasNatGC

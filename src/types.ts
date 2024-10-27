@@ -7,7 +7,6 @@ export type BuffTimer = {
 export type GlobalVariables = {
   buffTimers: BuffTimer[]
   natGCOnScreen: boolean
-  GCnoSpawnChance: number
 }
 
 type SettingsOptionBase<T> = {

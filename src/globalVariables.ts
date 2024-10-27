@@ -4,7 +4,6 @@ import { GlobalVariables, Settings, SettingsOption } from "./types"
 export const globalVars: GlobalVariables = {
   buffTimers: [],
   natGCOnScreen: false,
-  GCnoSpawnChance: 1
 } 
 
 export const settings: Settings = {
