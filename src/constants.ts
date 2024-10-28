@@ -35,7 +35,8 @@ export const SHORT_BUFF_NAMES: Record<string, string> = {
 export const MULT_CLICK_IDS = [
   "click_frenzy",
   "dragonflight",
-  "cursed_finger"
+  "cursed_finger",
+  "devastation",
 ]
 
 export const BUILDING_NAMES = [
