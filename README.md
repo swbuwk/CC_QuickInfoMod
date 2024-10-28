@@ -3,7 +3,8 @@
 
 # Installation
 ### Steam
-https://steamcommunity.com/sharedfiles/itemedittext/?id=3355573584
+[https://steamcommunity.com/sharedfiles/itemedittext/?id=3355573584
+](https://steamcommunity.com/sharedfiles/filedetails/?id=3355573584&searchtext=)
 
 ### Userscript (browser)
 Code for tampermonkey:
