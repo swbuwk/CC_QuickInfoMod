@@ -17,7 +17,8 @@ export const settings: Settings = {
   alternativeBuffStacking: false,
   showBuffTimers: true,
   showBuffToggler: true,
-  showGCTimer: true
+  showGCTimer: true,
+  warnLastingBuffs: true
 }
 
 export const settingsOptions: SettingsOption[] = [
@@ -115,6 +116,19 @@ export const settingsOptions: SettingsOption[] = [
     type: "boolean", 
     default: true,
   },
+  {
+    id: "warnLastingBuffs",
+    name: "Warn lasting buffs",
+    description: "(warns you when you have a buff that will expire in less than 10 seconds)",
+    type: "boolean",
+    default: true,
+    onChange: (val: boolean) => {
+      const QIContainer = l("QIContainer")
+      if (!QIContainer) return
+
+      QIContainer.classList.toggle("qi_warnOff", !val)
+    }
+  },
   { 
     id: "showMultipliers", 
     name: "Show buff mult.",
@@ -133,15 +147,11 @@ export const settingsOptions: SettingsOption[] = [
       if (!QIContainer) return
   
       if (val) {
-        QIContainer.style.flexDirection = "row"
-        QIContainer.style.flexWrap = "wrap"
+        QIContainer.classList.add("qi_altStacking")
         QIContainer.style.width = `calc(100% - ${20 + (settings?.showOldBuffTImers ? 50 : 0)}px)`
-        QIContainer.style.justifyContent = "flex-start"
       } else {
-        QIContainer.style.flexDirection = "column"
-        QIContainer.style.flexWrap = ""
+        QIContainer.classList.remove("qi_altStacking")
         QIContainer.style.width = ""
-        QIContainer.style.justifyContent = "center"
       }
     }
   },

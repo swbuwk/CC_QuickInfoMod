@@ -43,4 +43,5 @@ export type Settings = {
   showBuffTimers: boolean
   showBuffToggler: boolean
   showGCTimer: boolean
+  warnLastingBuffs: boolean
 }

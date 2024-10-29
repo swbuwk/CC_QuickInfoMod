@@ -26,21 +26,24 @@ export const UpdateBuffsTimer = () => {
     const buffEl = l("QI_" + buffId)
     if (!buffEl) return
 
+    buffEl.classList.toggle('qi_warning', buffTime <= 10)
+
     buffEl.innerHTML = `
       ${buffIcon}<span>${buffName}: ${buffTime}s</span> <span style="color: ${buffMultColor}; display: ${buffMult === 0 || !settings.showMultipliers ? "none" : "inline"};">x${parseFloat(buffMult.toFixed(1))}</span>
     `
   })
 
   if (globalVars.buffTimers.length !== Object.keys(Game.buffs).length) {
-    let deletedId = "";
-    globalVars.buffTimers.forEach((buff, i) => {
+    let deletedIds: string[] = [];
+    const buffTimersCopy = globalVars.buffTimers.slice()
+    buffTimersCopy.forEach((buff, i) => {
       if (!Object.keys(Game.buffs).includes(buff.key)) {
         const buffEl = l("QI_" + buff.id)
         if (!buffEl) return
         buffEl.remove()
-        deletedId = buff.id
+        deletedIds.push(buff.id)
       }
     })
-    globalVars.buffTimers = globalVars.buffTimers.filter(buff => buff.id !== deletedId)
+    globalVars.buffTimers = globalVars.buffTimers.filter(buff => !deletedIds.includes(buff.id))
   }
 }

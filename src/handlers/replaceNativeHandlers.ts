@@ -1,6 +1,7 @@
 import { globalVars, settings, settingsOptions } from "../globalVariables"
 import { createSettingsOption } from "./settings"
 import { BuffUtils } from "../utils/buff"
+import { styles } from "../styles"
 
 const addCustomSettings = () => {
   if (!l("menu")?.childNodes?.length) return
@@ -50,4 +51,9 @@ export const replaceNativeHandlers = () => {
     }
     return buff
   }
+
+  const QIStyles = document.createElement('style');
+  QIStyles.id = 'QIStyles';
+  QIStyles.innerHTML = styles;
+  document.getElementsByTagName('head')[0].appendChild(QIStyles);
 }

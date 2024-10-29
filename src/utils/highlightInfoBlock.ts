@@ -1,15 +1,12 @@
-import { COLORS } from "../constants"
-
 export const highlightInfoBlock = (infoBlock: HTMLElement | null) => {
   if (!infoBlock) return
 
-  infoBlock.style.boxShadow = `0 0 10px 10px white`
-  infoBlock.style.zIndex = "5"
+  infoBlock.classList.add("qi_behind", "qi_highlighted")
 
   setTimeout(() => {
-    infoBlock.style.boxShadow = ``
+    infoBlock.classList.remove("qi_highlighted")
   }, 1000)
   setTimeout(() => {
-    infoBlock.style.zIndex = "10"
+    infoBlock.classList.remove("qi_behind")
   }, 1500)
 }
