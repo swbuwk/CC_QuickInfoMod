@@ -1,5 +1,7 @@
 import { SHORT_BUFF_NAMES, ICON_SIZE, ICON_URL, BUILDING_NAMES } from "../constants"
-import { settings } from "../globalVariables"
+import { globalVars, settings } from "../globalVariables"
+import { BuffTimer } from "../types"
+import { highlightInfoBlock } from "./highlightInfoBlock"
 
 const getId = (buff: Game.Buff) => {
   const { type: buffType, arg2 } = buff
@@ -43,9 +45,28 @@ const getIcon = (buff: Game.Buff) => {
   `
 }
 
+const clearTimers = () => {
+  globalVars.buffTimers.forEach(({ id }) => {
+    const buffEl = l("QI_" + id)
+    if (buffEl) buffEl.remove()
+  })
+  globalVars.buffTimers = []
+}
+
+const highlightExistingBuff = (oldBuffTimers: BuffTimer[], newBuff: Game.Buff) => {
+  const newBuffId = BuffUtils.getId(newBuff)
+  const oldBuffCandidate = oldBuffTimers.find(buff => buff.id === newBuffId)
+
+  if (oldBuffCandidate) {
+    const buffEl = l("QI_" + oldBuffCandidate.id)
+    highlightInfoBlock(buffEl)
+  }
+}
 export const BuffUtils = {
   getId,
   getName,
   getIcon,
-  getBuildingName
+  getBuildingName,
+  clearTimers,
+  highlightExistingBuff
 }

@@ -20,7 +20,7 @@ export const UpdateBuffsTimer = () => {
 
     if (!globalVars.buffTimers.find(b => b.id === buffId)) {
       createInfoBlock(buffId)
-      globalVars.buffTimers.push({ id: buffId, key, time: buffTime })
+      globalVars.buffTimers.push({ id: buffId, key })
     }
 
     const buffEl = l("QI_" + buffId)
@@ -31,7 +31,7 @@ export const UpdateBuffsTimer = () => {
     `
   })
 
-  if (globalVars.buffTimers.length > Object.keys(Game.buffs).length) {
+  if (globalVars.buffTimers.length !== Object.keys(Game.buffs).length) {
     let deletedId = "";
     globalVars.buffTimers.forEach((buff, i) => {
       if (!Object.keys(Game.buffs).includes(buff.key)) {

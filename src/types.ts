@@ -1,7 +1,6 @@
 export type BuffTimer = {
   id: string
   key: string
-  time: number
 }
 
 export type GlobalVariables = {
